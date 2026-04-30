@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── CSS custom properties ───────────────────────────────────────────────── */
+:root {
+  --koa-green:  #1B4D35;
+  --koa-accent: #A8C5B0;
+  --koa-dark:   #0D1F17;
+  --koa-mid:    #2A7A54;
+}
+
+/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+  @apply font-sans text-gray-900;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(27, 77, 53, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(27, 77, 53, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-display tracking-wider;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: var(--koa-green); border-radius: 4px; }
+
+/* ── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background: var(--koa-mid);
+  color: #fff;
+}
+
+/* ── Swiper pagination ───────────────────────────────────────────────────── */
+.custom-pagination .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.custom-pagination .swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 3px;
+  background: var(--koa-accent);
+}
+
+/* ── Accent text glow ────────────────────────────────────────────────────── */
+.text-glow-white {
+  text-shadow: 0 0 20px rgba(168, 197, 176, 0.35);
+}
+
+/* ── Ken Burns hero animation ────────────────────────────────────────────── */
+@keyframes kenburns {
+  0%   { transform: scale(1.05) translateX(0) translateY(0); }
+  50%  { transform: scale(1.12) translateX(-1.5%) translateY(-1%); }
+  100% { transform: scale(1.05) translateX(0) translateY(0); }
+}
+.ken-burns-img {
+  animation: kenburns 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ── Preloader ───────────────────────────────────────────────────────────── */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: var(--koa-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+  animation: preloader-fadein 0.15s ease forwards;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.preloader-logo {
+  width: 300px;
+  max-width: 80vw;
+  animation: pulse 2s infinite;
+}
+@keyframes preloader-fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.5; transform: scale(0.95); }
+  50%       { opacity: 1;   transform: scale(1.05); }
+}
+
+/* ── Root hidden until preloader is done ────────────────────────────────── */
+#root.ready {
+  visibility: visible;
+}

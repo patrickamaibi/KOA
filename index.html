@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="preload" href="/images/logo.png" as="image" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#1B4D35" />
+    <meta name="description" content="KOA Engineering provides world-class structural and civil engineering solutions, driving innovation and precision globally." />
+    <meta name="keywords" content="Civil Engineering, Structural Design, KOA Engineering, Construction, Infrastructure, Renewable Energy" />
+    <meta name="author" content="KOA Engineering" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KOA Engineering" />
+    <meta property="og:title" content="KOA Engineering - Structural & Civil Excellence" />
+    <meta property="og:description" content="Precision and innovation in structural and civil engineering." />
+    <meta property="og:image" content="/images/logo.png" />
+    <title>KOA Engineering - Structural & Civil Excellence</title>
+
+    <!-- Critical preloader styles — inlined so they apply BEFORE any CSS file loads -->
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background-color: #0D1F17;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+      }
+      #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #preloader img {
+        width: 300px;
+        max-width: 80vw;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.5; transform: scale(0.95); }
+        50%       { opacity: 1;   transform: scale(1.05); }
+      }
+      #root {
+        visibility: hidden;
+      }
+      #root.ready {
+        visibility: visible;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="/images/logo.png" alt="KOA Engineering" />
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
