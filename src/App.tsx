@@ -7,6 +7,7 @@ import { Services } from "./pages/Services";
 import { Projects } from "./pages/Projects";
 import { Contact } from "./pages/Contact";
 import { Legal } from "./pages/Legal";
+import { Testimonials } from "./pages/Testimonials";
 
 const router = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "services", element: <Services /> },
       { path: "projects", element: <Projects /> },
+      { path: "testimonials", element: <Testimonials /> },
       { path: "contact", element: <Contact /> },
       { path: "legal", element: <Legal /> },
     ],
@@ -25,10 +27,12 @@ const router = createBrowserRouter([
 
 export default function App() {
   useEffect(() => {
-    const preloader = document.getElementById('preloader');
+    const preloader = document.getElementById("preloader");
+    const root = document.getElementById("root");
     if (preloader) {
       setTimeout(() => {
-        preloader.classList.add('hidden');
+        preloader.classList.add("hidden");
+        if (root) root.classList.add("ready");
       }, 5000);
     }
   }, []);

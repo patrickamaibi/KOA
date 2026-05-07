@@ -9,6 +9,7 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Projects", path: "/projects" },
+  { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -34,44 +35,58 @@ export function Navigation() {
       <header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          "bg-gradient-to-r from-koa-dark via-koa-green to-[#2A7A54] py-4 shadow-lg border-b border-white/20"
+          "bg-gradient-to-r from-koa-dark via-koa-green to-[#2A7A54] border-b border-white/20",
+          isScrolled ? "py-2 shadow-xl" : "py-4 shadow-lg"
         )}
       >
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/images/logo.png" alt="KOA Engineering" className="h-16 md:h-20 w-auto object-contain" />
+            <img
+              src="/images/logo.png"
+              alt="KOA Engineering"
+              className={cn(
+                "w-auto object-contain transition-all duration-300",
+                isScrolled ? "h-12 md:h-14" : "h-16 md:h-20"
+              )}
+            />
           </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-  link.name === "Contact" ? (
-    <Link
-      key={link.name}
-      to={link.path}
-      className={cn(
-        "font-display uppercase tracking-widest text-sm px-6 py-2.5 rounded-sm transition-all duration-300 bg-koa-accent text-koa-dark font-bold shadow-md hover:shadow-[0_0_20px_rgba(168,197,176,0.4)] hover:scale-105"
-      )}
-    >
-      Contact Us
-    </Link>
-  ) : (
-    <Link
-      key={link.name}
-      to={link.path}
-      className={cn(
-        "font-display uppercase tracking-widest text-sm transition-colors relative group",
-        location.pathname === link.path ? "text-koa-accent" : "text-white hover:text-koa-accent"
-      )}
-    >
-      {link.name}
-      <span className={cn(
-        "absolute -bottom-2 left-0 h-0.5 bg-koa-accent transition-all duration-300",
-        location.pathname === link.path ? "w-full" : "w-0 group-hover:w-full"
-      )} />
-    </Link>
-  )
-))}
+            {navLinks.map((link) =>
+              link.name === "Contact" ? (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={cn(
+                    "font-display uppercase tracking-widest text-sm px-6 py-2.5 rounded-sm transition-all duration-300 bg-koa-accent text-koa-dark font-bold shadow-md hover:shadow-[0_0_20px_rgba(168,197,176,0.4)] hover:scale-105"
+                  )}
+                >
+                  Contact Us
+                </Link>
+              ) : (
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className={cn(
+                    "font-display uppercase tracking-widest text-sm transition-colors relative group",
+                    location.pathname === link.path
+                      ? "text-koa-accent"
+                      : "text-white hover:text-koa-accent"
+                  )}
+                >
+                  {link.name}
+                  <span
+                    className={cn(
+                      "absolute -bottom-2 left-0 h-0.5 bg-koa-accent transition-all duration-300",
+                      location.pathname === link.path
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
+                    )}
+                  />
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Mobile Menu Toggle */}
