@@ -50,10 +50,10 @@ export function Footer() {
             <img
               src="/images/logo.png"
               alt="KOA Engineering"
-              className="h-24 md:h-32 w-auto object-contain mb-6"
+              className="h-24 md:h-32 w-auto object-contain mb-2"
             />
-            <p className="text-gray-400 font-sans max-w-sm mb-8">
-              Precision. Innovation. Excellence. Delivering world-class structural and civil engineering solutions across the globe.
+            <p className="text-gray-400 font-sans max-w-sm mb-8 italic">
+              Pushing Boundaries. Building Futures.
             </p>
             <div className="flex gap-4 flex-wrap">
               <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
@@ -88,7 +88,6 @@ export function Footer() {
               <li><Link to="/about" className="hover:text-koa-accent transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-koa-accent transition-colors">Services</Link></li>
               <li><Link to="/projects" className="hover:text-koa-accent transition-colors">Projects</Link></li>
-              <li><Link to="/testimonials" className="hover:text-koa-accent transition-colors">Testimonials</Link></li>
               <li><Link to="/about#leadership" className="hover:text-koa-accent transition-colors">Leadership</Link></li>
             </ul>
           </div>
@@ -106,7 +105,7 @@ export function Footer() {
 
         <div className="pt-8 border-t border-white/10 text-sm text-gray-500 font-sans flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-center md:text-left">
-            &copy; {new Date().getFullYear()} KOA Engineering. All rights reserved.
+            &copy; {new Date().getFullYear()} KOA Engineering. All rights reserved. &nbsp;·&nbsp; RC 9626084
           </p>
           <p className="text-center md:text-right">
             Designed &amp; developed by{" "}
@@ -119,9 +118,6 @@ export function Footer() {
               DiscoveryTech Hub
             </a>
           </p>
-          <div className="hidden md:block">
-            <span>COREN Registered</span>
-          </div>
         </div>
 
       </div>

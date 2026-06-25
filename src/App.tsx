@@ -7,7 +7,7 @@ import { Services } from "./pages/Services";
 import { Projects } from "./pages/Projects";
 import { Contact } from "./pages/Contact";
 import { Legal } from "./pages/Legal";
-import { Testimonials } from "./pages/Testimonials";
+import { SubmitTestimonial } from "./pages/SubmitTestimonial";
 
 const router = createBrowserRouter([
   {
@@ -18,9 +18,9 @@ const router = createBrowserRouter([
       { path: "about", element: <About /> },
       { path: "services", element: <Services /> },
       { path: "projects", element: <Projects /> },
-      { path: "testimonials", element: <Testimonials /> },
       { path: "contact", element: <Contact /> },
       { path: "legal", element: <Legal /> },
+      { path: "submit-testimonial", element: <SubmitTestimonial /> },
     ],
   },
 ]);

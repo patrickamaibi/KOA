@@ -25,6 +25,7 @@
         z-index: 9999;
         background-color: #0D1F17;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         opacity: 1;
@@ -45,6 +46,29 @@
         0%, 100% { opacity: 0.5; transform: scale(0.95); }
         50%       { opacity: 1;   transform: scale(1.05); }
       }
+      #preloader-tagline {
+        margin-top: 4px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 1.125rem;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #ffffff;
+        width: 0;
+        animation:
+          typewriter 2s steps(38, end) 0.8s forwards,
+          blink 0.7s step-end 0.8s infinite;
+      }
+      @keyframes typewriter {
+        from { width: 0; }
+        to   { width: 33ch; }
+      }
+      @keyframes blink {
+        0%, 100% { border-color: #ffffff; }
+        50%       { border-color: transparent; }
+      }
       #root {
         visibility: hidden;
       }
@@ -56,6 +80,7 @@
   <body>
     <div id="preloader">
       <img src="/images/logo.png" alt="KOA Engineering" />
+      <span id="preloader-tagline">Pushing Boundaries. Building Futures.</span>
     </div>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>

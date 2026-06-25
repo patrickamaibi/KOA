@@ -9,7 +9,6 @@ const navLinks = [
   { name: "About", path: "/about" },
   { name: "Services", path: "/services" },
   { name: "Projects", path: "/projects" },
-  { name: "Testimonials", path: "/testimonials" },
   { name: "Contact", path: "/contact" },
 ];
 
@@ -42,7 +41,7 @@ export function Navigation() {
         <div className="container mx-auto px-6 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img
-              src="/images/logo.png"
+              src="/images/logo2.png"
               alt="KOA Engineering"
               className={cn(
                 "w-auto object-contain transition-all duration-300",
