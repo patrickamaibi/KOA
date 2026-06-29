@@ -12,7 +12,7 @@ const services = [
   },
   {
     title: "Construction Management",
-    description: "End-to-end project delivery with rigorous quality control, cost management, and timeline precision. We coordinate all phases of construction — from procurement to handover — ensuring every project is delivered on time and within budget.",
+    description: "End-to-end project delivery with rigorous quality control, cost management, and timeline precision. We coordinate all phases of construction from procurement to handover ensuring every project is delivered on time and within budget.",
     image: "/images/project2.png",
   },
   {
@@ -42,12 +42,12 @@ const services = [
   },
   {
     title: "Electrical Engineering",
-    description: "Comprehensive electrical engineering services spanning power systems design, high and low voltage installations, lighting systems, and energy efficiency solutions. Our team delivers safe, code-compliant electrical infrastructure for residential, commercial, and industrial projects — from load analysis and single-line diagrams through to site commissioning and testing.",
-    image: "/images/structural.jpg",
+    description: "Comprehensive electrical engineering services spanning power systems design, high and low voltage installations, lighting systems, and energy efficiency solutions. Our team delivers safe, code-compliant electrical infrastructure for residential, commercial, and industrial projects from load analysis and single-line diagrams through to site commissioning and testing.",
+    image: "/images/solar2.png",
   },
   {
     title: "Engineering Consultancy",
-    description: "Expert advisory services across all engineering disciplines — from concept feasibility and technical due diligence to regulatory compliance, value engineering, and independent design review. Whether you require peer review of existing designs, specialist input on a complex challenge, or a trusted technical partner for long-term project support, our multidisciplinary consultancy team brings the depth of knowledge and professional rigour your project demands.",
+    description: "Expert advisory services across all engineering disciplines from concept feasibility and technical due diligence to regulatory compliance, value engineering, and independent design review. Whether you require peer review of existing designs, specialist input on a complex challenge, or a trusted technical partner for long-term project support, our multidisciplinary consultancy team brings the depth of knowledge and professional rigour your project demands.",
     image: "/images/consultancy.png",
   },
 ];

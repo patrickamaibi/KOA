@@ -6,7 +6,7 @@ import { Lock, CheckCircle, AlertCircle } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { hardcodedProjects } from "../data/projects";
 
-const ACCESS_CODE = "KOA2025";
+const ACCESS_CODE = "KOA2026";
 const currentYear = new Date().getFullYear();
 const years = Array.from({ length: 10 }, (_, i) => String(currentYear - i));
 const categories = ["Structural", "Highway", "Industrial", "Others"];

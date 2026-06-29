@@ -175,27 +175,6 @@ export function Home() {
         </div>
       </section>
 
-      {/* ── Trust Bar ─────────────────────────────────────────────────────── */}
-      <section className="bg-white border-b border-gray-100">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 text-sm font-display uppercase tracking-widest text-gray-900">
-            {["CAC Reg: RC 9626084", "100% Nigerian Owned"].map((item, i) => (
-              <motion.span
-                key={i}
-                initial={{ opacity: 0, y: 6 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.07 }}
-                className="flex items-center gap-2"
-              >
-                <span className="w-1 h-1 rounded-full bg-koa-accent inline-block" />
-                {item}
-              </motion.span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Core Services ─────────────────────────────────────────────────── */}
       <Section variant="white">
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -321,7 +300,7 @@ export function Home() {
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={project.image}
+                      src={project.coverImage}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                     />

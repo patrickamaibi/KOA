@@ -55,33 +55,6 @@ export function About() {
         </div>
       </section>
 
-      {/* ── Company Facts Bar ─────────────────────────────────────────────── */}
-      <section className="bg-koa-dark border-b border-white/10">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-20">
-            {[
-              { label: "CAC Reg No", value: "RC 9626084" },
-              { label: "Ownership", value: "100% Nigerian" },
-            ].map((item, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="text-center"
-              >
-                <p className="text-white/50 font-display text-xs uppercase tracking-[0.25em] mb-1">
-                  {item.label}
-                </p>
-                <p className="text-white font-display font-bold text-xl md:text-2xl tracking-widest">
-                  {item.value}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ── Story ─────────────────────────────────────────────────────────── */}
       <Section variant="white" className="pt-12">
         <div className="grid md:grid-cols-2 gap-16 items-center">

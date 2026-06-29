@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useLocation } from "react-router-dom";
 import { Section } from "../components/ui/Section";
 import { SEO } from "../components/ui/SEO";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Quote, MapPin, Calendar, Building2 } from "lucide-react";
+import { X, Quote, MapPin, Calendar, Building2, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "../lib/supabaseClient";
 import { hardcodedProjects, type Project } from "../data/projects";
 
@@ -19,6 +19,125 @@ interface Testimonial {
 
 const categories = ["All", "Structural", "Highway", "Industrial", "Others"];
 
+// ── Image Gallery (used inside modal) ────────────────────────────────────────
+function ImageGallery({ images, title }: { images: string[]; title: string }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const prev = useCallback(() =>
+    setActiveIndex((i) => (i - 1 + images.length) % images.length), [images.length]);
+  const next = useCallback(() =>
+    setActiveIndex((i) => (i + 1) % images.length), [images.length]);
+
+  // Keyboard navigation when gallery is visible
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") next();
+    };
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [prev, next, images.length]);
+
+  const single = images.length === 1;
+
+  return (
+    <div className="flex flex-col">
+      {/* ── Main viewer ── */}
+      <div className="relative h-64 md:h-80 overflow-hidden bg-koa-dark">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={activeIndex}
+            src={images[activeIndex]}
+            alt={`${title} — image ${activeIndex + 1}`}
+            className="absolute inset-0 w-full h-full object-cover"
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.35 }}
+          />
+        </AnimatePresence>
+
+        {/* Gradient overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(13,31,23,0.88) 0%, rgba(13,31,23,0.3) 50%, transparent 100%)",
+          }}
+        />
+
+        {/* Arrow buttons — only when multiple images */}
+        {!single && (
+          <>
+            <button
+              onClick={(e) => { e.stopPropagation(); prev(); }}
+              className="absolute left-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+              style={{ background: "rgba(13,31,23,0.65)", backdropFilter: "blur(6px)", border: "1px solid rgba(168,197,176,0.25)" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(42,122,84,0.85)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(13,31,23,0.65)")}
+              aria-label="Previous image"
+            >
+              <ChevronLeft size={18} className="text-white" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); next(); }}
+              className="absolute right-3 top-1/2 -translate-y-1/2 z-10 w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
+              style={{ background: "rgba(13,31,23,0.65)", backdropFilter: "blur(6px)", border: "1px solid rgba(168,197,176,0.25)" }}
+              onMouseEnter={e => (e.currentTarget.style.background = "rgba(42,122,84,0.85)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(13,31,23,0.65)")}
+              aria-label="Next image"
+            >
+              <ChevronRight size={18} className="text-white" />
+            </button>
+
+            {/* Counter pill */}
+            <div
+              className="absolute top-3 right-3 z-10 font-display text-[10px] uppercase tracking-widest px-2.5 py-1"
+              style={{ background: "rgba(13,31,23,0.65)", backdropFilter: "blur(6px)", color: "#A8C5B0", border: "1px solid rgba(168,197,176,0.2)", borderRadius: "2px" }}
+            >
+              {String(activeIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            </div>
+          </>
+        )}
+      </div>
+
+      {/* ── Thumbnail strip — only when multiple images ── */}
+      {!single && (
+        <div
+          className="flex gap-2 p-3 overflow-x-auto"
+          style={{ background: "#0D1F17" }}
+        >
+          {images.map((src, i) => (
+            <button
+              key={i}
+              onClick={(e) => { e.stopPropagation(); setActiveIndex(i); }}
+              className="shrink-0 relative overflow-hidden transition-all duration-200"
+              style={{
+                width: "64px",
+                height: "48px",
+                borderRadius: "2px",
+                border: i === activeIndex
+                  ? "2px solid #A8C5B0"
+                  : "2px solid rgba(168,197,176,0.15)",
+                opacity: i === activeIndex ? 1 : 0.55,
+              }}
+              aria-label={`View image ${i + 1}`}
+            >
+              <img
+                src={src}
+                alt={`Thumbnail ${i + 1}`}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ── Main Projects page ────────────────────────────────────────────────────────
 export function Projects() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -129,7 +248,6 @@ export function Projects() {
                 className="group relative cursor-pointer"
                 style={{ perspective: "1000px" }}
               >
-                {/* ── Card shell ── */}
                 <div
                   className="relative overflow-hidden rounded-[2px]"
                   style={{
@@ -147,15 +265,14 @@ export function Projects() {
                     (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
                   }}
                 >
-                  {/* ── Image ── */}
+                  {/* Card image — uses coverImage */}
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
-                      src={project.image}
+                      src={project.coverImage}
                       alt={project.title}
                       className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"
                     />
 
-                    {/* Gradient vignette always present */}
                     <div
                       className="absolute inset-0 pointer-events-none"
                       style={{
@@ -164,7 +281,24 @@ export function Projects() {
                       }}
                     />
 
-                    {/* ── Category chip ── */}
+                    {/* Multi-image indicator */}
+                    {project.images.length > 1 && (
+                      <div
+                        className="absolute bottom-4 right-4 z-10 flex items-center gap-1 font-display text-[10px] uppercase tracking-widest px-2 py-1"
+                        style={{
+                          background: "rgba(13,31,23,0.65)",
+                          backdropFilter: "blur(6px)",
+                          color: "#A8C5B0",
+                          border: "1px solid rgba(168,197,176,0.2)",
+                          borderRadius: "2px",
+                        }}
+                      >
+                        <span style={{ fontSize: "10px" }}>⊞</span>
+                        {project.images.length} photos
+                      </div>
+                    )}
+
+                    {/* Category chip */}
                     <div className="absolute top-4 left-4 z-10">
                       <span
                         className="inline-block font-display text-[10px] font-bold uppercase tracking-[0.18em] px-3 py-1"
@@ -174,35 +308,29 @@ export function Projects() {
                           color: "#A8C5B0",
                           border: "1px solid rgba(168,197,176,0.25)",
                           borderRadius: "2px",
-                          letterSpacing: "0.18em",
                         }}
                       >
                         {project.category}
                       </span>
                     </div>
 
-                    {/* ── Client Rated badge — only if rated ── */}
+                    {/* Client Rated badge */}
                     {hasTestimonial && (
                       <div className="absolute top-4 right-4 z-10">
                         <span
                           className="inline-flex items-center gap-1 font-display text-[10px] font-bold uppercase tracking-widest px-2.5 py-1"
-                          style={{
-                            background: "#A8C5B0",
-                            color: "#0D1F17",
-                            borderRadius: "2px",
-                          }}
+                          style={{ background: "#A8C5B0", color: "#0D1F17", borderRadius: "2px" }}
                         >
                           ★ Client Rated
                         </span>
                       </div>
                     )}
 
-                    {/* ── Hover panel — location only shown if rated ── */}
+                    {/* Hover panel */}
                     <div
                       className="absolute inset-x-0 bottom-0 z-10 flex flex-col justify-end px-5 pb-5 pt-10"
                       style={{
-                        background:
-                          "linear-gradient(to top, rgba(13,31,23,0.96) 60%, transparent 100%)",
+                        background: "linear-gradient(to top, rgba(13,31,23,0.96) 60%, transparent 100%)",
                         opacity: 0,
                         transform: "translateY(8px)",
                         transition: "opacity 0.35s ease, transform 0.35s ease",
@@ -211,23 +339,15 @@ export function Projects() {
                         if (!el) return;
                         const card = el.closest(".group") as HTMLElement | null;
                         if (!card) return;
-                        const show = () => {
-                          el.style.opacity = "1";
-                          el.style.transform = "translateY(0)";
-                        };
-                        const hide = () => {
-                          el.style.opacity = "0";
-                          el.style.transform = "translateY(8px)";
-                        };
+                        const show = () => { el.style.opacity = "1"; el.style.transform = "translateY(0)"; };
+                        const hide = () => { el.style.opacity = "0"; el.style.transform = "translateY(8px)"; };
                         card.addEventListener("mouseenter", show);
                         card.addEventListener("mouseleave", hide);
                       }}
                     >
-                      {/* Location only revealed for client-rated projects */}
                       {hasTestimonial && project.location && (
                         <p className="flex items-center gap-1.5 text-[11px] text-white/55 font-sans mb-1.5">
-                          <MapPin size={10} />
-                          {project.location}
+                          <MapPin size={10} />{project.location}
                         </p>
                       )}
                       <p className="text-xs text-koa-accent/80 font-display uppercase tracking-widest mb-0.5">
@@ -236,12 +356,8 @@ export function Projects() {
                     </div>
                   </div>
 
-                  {/* ── Card footer ── */}
-                  <div
-                    className="px-5 py-4 flex flex-col gap-1"
-                    style={{ background: "#fff" }}
-                  >
-                    {/* Thin accent rule */}
+                  {/* Card footer */}
+                  <div className="px-5 py-4 flex flex-col gap-1 bg-white">
                     <div
                       className="w-6 mb-2"
                       style={{
@@ -263,19 +379,15 @@ export function Projects() {
                     >
                       {project.title}
                     </h3>
-
-                    {/* Meta row — year always shown; client only if rated */}
                     <div className="flex items-center gap-3 mt-1">
                       {project.year && (
                         <span className="flex items-center gap-1 text-[11px] text-gray-400 font-sans">
-                          <Calendar size={10} />
-                          {project.year}
+                          <Calendar size={10} />{project.year}
                         </span>
                       )}
                       {hasTestimonial && project.client && (
                         <span className="flex items-center gap-1 text-[11px] text-gray-400 font-sans truncate">
-                          <Building2 size={10} />
-                          {project.client}
+                          <Building2 size={10} />{project.client}
                         </span>
                       )}
                     </div>
@@ -314,28 +426,28 @@ export function Projects() {
             >
               <button
                 onClick={() => setSelectedProject(null)}
-                className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-red-50 text-gray-700 hover:text-red-600 rounded-full p-2 transition-colors shadow"
+                className="absolute top-3 right-3 z-20 bg-white/90 hover:bg-red-50 text-gray-700 hover:text-red-600 rounded-full p-2 transition-colors shadow"
               >
                 <X size={20} />
               </button>
 
-              {/* Modal image */}
-              <div className="relative h-64 md:h-80 overflow-hidden">
-                <img
-                  src={selectedProject.image}
-                  alt={selectedProject.title}
-                  className="w-full h-full object-cover"
+              {/* ── Gallery ── */}
+              <div className="relative">
+                <ImageGallery
+                  images={selectedProject.images}
+                  title={selectedProject.title}
                 />
+
+                {/* Title overlay on top of main image */}
                 <div
-                  className="absolute inset-0"
+                  className="absolute inset-x-0 bottom-0 p-6 md:p-8 pointer-events-none"
                   style={{
-                    background:
-                      "linear-gradient(to top, rgba(13,31,23,0.88) 0%, rgba(13,31,23,0.3) 50%, transparent 100%)",
+                    // only covers the main image area, not the thumbnail strip
+                    bottom: selectedProject.images.length > 1 ? "72px" : "0",
                   }}
-                />
-                <div className="absolute inset-0 flex flex-col justify-end p-8">
+                >
                   <span
-                    className="inline-block font-display text-[10px] font-bold uppercase tracking-[0.18em] px-3 py-1 mb-3 self-start"
+                    className="inline-block font-display text-[10px] font-bold uppercase tracking-[0.18em] px-3 py-1 mb-3"
                     style={{
                       background: "rgba(13,31,23,0.6)",
                       backdropFilter: "blur(8px)",
@@ -349,39 +461,32 @@ export function Projects() {
                   <h2 className="text-2xl md:text-3xl font-display font-bold text-white leading-tight">
                     {selectedProject.title}
                   </h2>
-
-                  {/* Meta row — location & client only if rated; year always shown */}
                   <div className="flex flex-wrap gap-4 mt-3">
                     {selectedProject.year && (
                       <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
-                        <Calendar size={11} />
-                        {selectedProject.year}
+                        <Calendar size={11} />{selectedProject.year}
                       </span>
                     )}
                     {projectTestimonials.length > 0 && selectedProject.location && (
                       <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
-                        <MapPin size={11} />
-                        {selectedProject.location}
+                        <MapPin size={11} />{selectedProject.location}
                       </span>
                     )}
                     {projectTestimonials.length > 0 && selectedProject.client && (
                       <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
-                        <Building2 size={11} />
-                        {selectedProject.client}
+                        <Building2 size={11} />{selectedProject.client}
                       </span>
                     )}
                   </div>
                 </div>
               </div>
 
-              {/* Modal body */}
+              {/* ── Modal body ── */}
               <div className="p-6 md:p-8 space-y-6">
-                {/* Accent rule */}
                 <div
                   style={{
                     height: "2px",
-                    background:
-                      "linear-gradient(90deg, #A8C5B0 0%, rgba(168,197,176,0.1) 100%)",
+                    background: "linear-gradient(90deg, #A8C5B0 0%, rgba(168,197,176,0.1) 100%)",
                     width: "48px",
                   }}
                 />
@@ -414,9 +519,7 @@ export function Projects() {
                         <p className="text-gray-600 italic leading-relaxed text-sm mb-3">
                           "{t.remark}"
                         </p>
-                        <p className="font-display font-bold text-gray-900 text-sm">
-                          {t.name}
-                        </p>
+                        <p className="font-display font-bold text-gray-900 text-sm">{t.name}</p>
                         <p className="text-gray-400 text-xs mt-0.5">
                           {t.role}{t.company ? `, ${t.company}` : ""} · {t.year}
                         </p>
