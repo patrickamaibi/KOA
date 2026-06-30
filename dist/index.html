@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/images/webp/logo.webp" as="image" />
+    <link rel="preload" href="/images/webp/hero.webp" as="image" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Primary Meta -->
+    <title>KOA Engineering - Structural, Civil & General Engineering in Abuja, Nigeria</title>
+    <meta name="description" content="KOA Engineering delivers world-class structural, civil and general engineering solutions across Nigeria. Based in Abuja, FCT." />
+    <meta name="keywords" content="Civil Engineering Abuja, Structural Engineering Nigeria, General Engineering, KOA Engineering, Highway Construction, Industrial Engineering, Renewable Energy Nigeria, Building Construction Abuja" />
+    <meta name="author" content="KOA Engineering" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1B4D35" />
+    <meta name="apple-mobile-web-app-title" content="KOA Engineering" />
+    <link rel="canonical" href="https://koaengineering.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="KOA Engineering" />
+    <meta property="og:title" content="KOA Engineering - Structural, Civil & General Engineering in Abuja, Nigeria" />
+    <meta property="og:description" content="KOA Engineering delivers world-class structural, civil and general engineering solutions across Nigeria. Based in Abuja, FCT." />
+    <meta property="og:image" content="https://koaengineering.com/images/webp/hero.webp" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="KOA Engineering - Structural, Civil & General Engineering" />
+    <meta property="og:url" content="https://koaengineering.com/" />
+    <meta property="og:locale" content="en_NG" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="KOA Engineering - Structural, Civil & General Engineering in Abuja, Nigeria" />
+    <meta name="twitter:description" content="KOA Engineering delivers world-class structural, civil and general engineering solutions across Nigeria. Based in Abuja, FCT." />
+    <meta name="twitter:image" content="https://koaengineering.com/images/webp/hero.webp" />
+    <meta name="twitter:image:alt" content="KOA Engineering - Structural, Civil & General Engineering" />
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "KOA Engineering",
+      "url": "https://koaengineering.com",
+      "logo": "https://koaengineering.com/images/webp/logo.webp",
+      "image": "https://koaengineering.com/images/webp/hero.webp",
+      "description": "KOA Engineering delivers world-class structural, civil and general engineering solutions across Nigeria.",
+      "telephone": "+2347036026716",
+      "email": "info@koaengineering.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Abuja",
+        "addressRegion": "FCT",
+        "addressCountry": "NG"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 9.0579,
+        "longitude": 7.4951
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Nigeria"
+      },
+      "sameAs": [https://www.facebook.com/share/1DLeHhhdBc/?mibextid=wwXIfr]
+    }
+    </script>
+
+    <style>
+      #preloader {
+        position: fixed;
+        inset: 0;
+        z-index: 9999;
+        background-color: #0D1F17;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+      }
+      #preloader.hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+      #preloader img {
+        width: 300px;
+        max-width: 80vw;
+        animation: pulse 2s infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.5; transform: scale(0.95); }
+        50%       { opacity: 1;   transform: scale(1.05); }
+      }
+      #preloader-tagline {
+        margin-top: 4px;
+        font-family: Georgia, serif;
+        font-style: italic;
+        font-size: 1.125rem;
+        letter-spacing: 0.08em;
+        color: #ffffff;
+        white-space: nowrap;
+        overflow: hidden;
+        border-right: 2px solid #ffffff;
+        width: 0;
+        animation:
+          typewriter 2s steps(38, end) 0.8s forwards,
+          blink 0.7s step-end 0.8s infinite;
+      }
+      @keyframes typewriter {
+        from { width: 0; }
+        to   { width: 33ch; }
+      }
+      @keyframes blink {
+        0%, 100% { border-color: #ffffff; }
+        50%       { border-color: transparent; }
+      }
+      #root {
+        visibility: hidden;
+      }
+      #root.ready {
+        visibility: visible;
+      }
+    </style>
+    <script type="module" crossorigin src="/assets/index-BOvj-m9M.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-B9zZVM04.css">
+  </head>
+  <body>
+    <div id="preloader">
+      <img src="/images/webp/logo.webp" alt="KOA Engineering" />
+      <span id="preloader-tagline">Pushing Boundaries. Building Futures.</span>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>
