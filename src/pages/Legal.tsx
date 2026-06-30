@@ -9,7 +9,7 @@ export function Legal() {
         description="Privacy policy, terms of service, and health & safety standards for KOA Engineering."
       />
       <section className="relative py-32 bg-koa-dark overflow-hidden mb-12">
-        <img src="/images/project2.png" alt="Legal & Policies" className="absolute inset-0 w-full h-full object-cover opacity-60" />
+        <img src="/images/webp/project2.webp" alt="Legal & Policies" className="absolute inset-0 w-full h-full object-cover opacity-60" />
         <div className="absolute inset-0 bg-gradient-to-br from-koa-green/60 to-koa-dark/80"></div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
           <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-white">Legal & Policies</h1>

@@ -6,22 +6,23 @@ import { EffectFade, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/pagination";
+import { SEO } from "../components/ui/SEO";
 
 import { Button } from "../components/ui/Button";
 import { Section } from "../components/ui/Section";
-import { ArrowRight, Building2, HardHat, Factory, MapPin, Calendar, Shield, Droplets, Trees } from "lucide-react";
+import { ArrowRight, Building2, HardHat, Factory, Shield, Droplets, Trees, Calendar } from "lucide-react";
 import { hardcodedProjects } from "../data/projects";
 import { supabase } from "../lib/supabaseClient";
 
 const heroSlides = [
-  { id: 1, title: "Structural Excellence",  subtitle: "Precision engineering for modern architectural marvels.",  image: "/images/KOA22.png" },
-  { id: 2, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/KOA25.png" },
-  { id: 3, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/KOA23.png" },
-  { id: 4, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/KOA24.png" },
-  { id: 5, title: "Industrial Frameworks",  subtitle: "Advanced structural steel solutions for heavy industry.", image: "/images/KOA21.png" },
-  { id: 6, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/KOA26.png" },
-  { id: 7, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/KOA27.png" },
-  { id: 8, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/KOA28.png" },
+  { id: 1, title: "Structural Excellence",  subtitle: "Precision engineering for modern architectural marvels.",  image: "/images/webp/KOA22.webp" },
+  { id: 2, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/webp/KOA25.webp" },
+  { id: 3, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/webp/KOA23.webp" },
+  { id: 4, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/webp/KOA24.webp" },
+  { id: 5, title: "Industrial Frameworks",  subtitle: "Advanced structural steel solutions for heavy industry.", image: "/images/webp/KOA21.webp" },
+  { id: 6, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/webp/KOA26.webp" },
+  { id: 7, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/webp/KOA27.webp" },
+  { id: 8, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/webp/KOA28.webp" },
 ];
 
 const stats = [
@@ -31,7 +32,8 @@ const stats = [
   { label: "Delivery Rate",       value: 100, suffix: "%" },
 ];
 
-const FEATURED_IDS = [1, 2];
+// ✅ Commercial Complex (id 2) first, then id 1
+const FEATURED_IDS = [2, 1];
 
 const coreServices = [
   { icon: Building2,  title: "Structural Engineering",                    desc: "Advanced analysis and design of complex structures ensuring safety and efficiency." },
@@ -94,6 +96,12 @@ export function Home() {
 
   return (
     <div className="bg-white">
+      <SEO
+        title="KOA Engineering - Structural, Civil & General Engineering in Abuja, Nigeria"
+        description="KOA Engineering delivers world-class structural, civil and general engineering solutions across Nigeria. Based in Abuja, FCT."
+        url="https://koaengineering.com"
+        image="https://koaengineering.com/images/webp/KOA22.webp"
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative h-screen w-full overflow-hidden bg-koa-dark">
@@ -321,23 +329,17 @@ export function Home() {
                     )}
                   </div>
 
+                  {/* ✅ Location removed — only year remains */}
                   <div className="px-5 py-4 flex flex-col gap-1 bg-white">
                     <div className="w-6 mb-2 h-0.5 bg-gradient-to-r from-koa-accent to-transparent transition-all duration-500 group-hover:w-12" />
                     <h3 className="font-display font-bold text-koa-dark leading-snug" style={{ fontSize: "0.92rem", letterSpacing: "0.02em" }}>
                       {project.title}
                     </h3>
-                    <div className="flex items-center gap-3 mt-1">
-                      {project.year && (
-                        <span className="flex items-center gap-1 text-[11px] text-gray-400 font-sans">
-                          <Calendar size={10} /> {project.year}
-                        </span>
-                      )}
-                      {project.location && (
-                        <span className="flex items-center gap-1 text-[11px] text-gray-400 font-sans truncate">
-                          <MapPin size={10} /> {project.location}
-                        </span>
-                      )}
-                    </div>
+                    {project.year && (
+                      <div className="flex items-center gap-1 mt-1 text-[11px] text-gray-400 font-sans">
+                        <Calendar size={10} /> {project.year}
+                      </div>
+                    )}
                   </div>
                 </div>
               </motion.div>

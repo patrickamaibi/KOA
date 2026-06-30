@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://koa-engineering.com/sitemap.xml
+Disallow: /submit-testimonial
+
+Sitemap: https://koaengineering.com/sitemap.xml

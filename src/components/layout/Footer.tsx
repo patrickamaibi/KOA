@@ -48,7 +48,7 @@ export function Footer() {
 
           <div className="col-span-1 md:col-span-2">
             <img
-              src="/images/logo.png"
+              src="/images/webp/logo.webp"
               alt="KOA Engineering"
               className="h-24 md:h-32 w-auto object-contain mb-2"
             />
@@ -56,27 +56,22 @@ export function Footer() {
               Pushing Boundaries. Building Futures.
             </p>
             <div className="flex gap-4 flex-wrap">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
+              <a href="https://www.facebook.com/share/1DLeHhhdBc/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
                 <FacebookIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
+              <a href="https://www.instagram.com/koa.engineering/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
                 <InstagramIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
+              <a href="https://www.x.com/koa.engineering" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
                 <TwitterIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
+              <a href="https://www.linkedin.com/company/koaengineering" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
                 <LinkedinIcon className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
+              <a href="https://www.tiktok.com/@koa.engineering" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-koa-green hover:text-white transition-all">
                 <TikTokIcon className="w-5 h-5" />
               </a>
-              <a
-                href="https://www.youtube.com/@KOAENGINEERING"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all"
-              >
+              <a href="https://www.youtube.com/@KOAENGINEERING" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white transition-all">
                 <YoutubeIcon className="w-5 h-5" />
               </a>
             </div>

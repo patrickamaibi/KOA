@@ -174,14 +174,16 @@ export function Projects() {
   return (
     <div className="pt-24 bg-white">
       <SEO
-        title="Portfolio - KOA Engineering"
-        description="Explore KOA Engineering's extensive portfolio of structural, civil, highway, industrial, and residential projects across Nigeria."
+        title="Projects Portfolio - KOA Engineering | Structural, Civil & Highway Projects in Nigeria"
+        description="Browse KOA Engineering's portfolio of completed structural, highway, industrial, and civil engineering projects across Nigeria. Over 50 projects delivered with precision."
+        url="https://koaengineering.com/projects"
+        image="https://koaengineering.com/images/webp/KOA23.webp"
       />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden mb-12">
         <img
-          src="/images/KOA23.png"
+          src="/images/webp/KOA23.webp"
           alt="Engineering Projects"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{ filter: "blur(3px)", transform: "scale(1.05)" }}

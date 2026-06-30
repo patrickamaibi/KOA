@@ -3,6 +3,7 @@ import { Button } from "../components/ui/Button";
 import { Building2, Award, Users, BadgeCheck, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { SEO } from "../components/ui/SEO";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
@@ -14,11 +15,17 @@ const fadeUp = (delay = 0) => ({
 export function About() {
   return (
     <div className="pt-24 bg-white">
+      <SEO
+        title="About KOA Engineering - Structural & Civil Engineering Firm in Abuja, Nigeria"
+        description="KOA Engineering is a 100% Nigerian-owned structural and civil engineering firm founded in 2019 by Engr. Paul Abba Ojonugwa. COREN & NSE certified, delivering precision engineering across Nigeria."
+        url="https://koaengineering.com/about"
+        image="https://koaengineering.com/images/webp/project2.webp"
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden">
         <img
-          src="/images/project2.png"
+          src="/images/webp/project2.webp"
           alt="Engineering"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{ filter: "blur(3px)", transform: "scale(1.05)" }}
@@ -80,7 +87,7 @@ export function About() {
             style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
           >
             <img
-              src="/images/project1.png"
+              src="/images/webp/project1.webp"
               alt="Company History"
               className="w-full h-full object-cover"
               style={{ borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%" }}
@@ -183,7 +190,7 @@ export function About() {
               <div className="absolute -bottom-4 -right-4 w-24 h-2 bg-koa-green rounded-full z-0" />
               <div className="relative z-10 aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl">
                 <img
-                  src="/images/CEO.png"
+                  src="/images/webp/CEO.webp"
                   alt="Engr. Paul Abba Ojonugwa"
                   className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
                 />
@@ -246,7 +253,7 @@ export function About() {
         </motion.h2>
         <div className="flex flex-wrap justify-center gap-12">
           {[
-            { icon: Award,     label: "ISO 9001"   },
+            { icon: Award,     label: "PMP"   },
             { icon: Building2, label: "COREN"      },
             { icon: Users,     label: "NSE Member" },
           ].map(({ icon: Icon, label }, i) => (

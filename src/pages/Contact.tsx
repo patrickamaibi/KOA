@@ -44,7 +44,7 @@ export function Contact() {
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden mb-12">
         <img
-          src="/images/project1.png"
+          src="/images/webp/project1.webp"
           alt="Engineering Contact"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{ filter: "blur(3px)", transform: "scale(1.05)" }}

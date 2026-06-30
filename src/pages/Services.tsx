@@ -3,52 +3,53 @@ import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
+import { SEO } from "../components/ui/SEO";
 
 const services = [
   {
     title: "Structural Engineering",
     description: "Our structural engineering team leverages advanced finite element analysis and cutting-edge materials to design resilient buildings and infrastructure. We ensure that every framework can withstand both time and the elements.",
-    image: "/images/structural.jpg",
+    image: "/images/webp/structural.webp",
   },
   {
     title: "Construction Management",
     description: "End-to-end project delivery with rigorous quality control, cost management, and timeline precision. We coordinate all phases of construction from procurement to handover ensuring every project is delivered on time and within budget.",
-    image: "/images/project2.png",
+    image: "/images/webp/project2.webp",
   },
   {
     title: "Steel & Timber Engineering",
     description: "Robust steel and timber structural frameworks engineered to handle heavy loads and demanding environments. From fabrication detailing to connection design, we deliver steel and timber solutions built to last.",
-    image: "/images/industrial2.jpg",
+    image: "/images/webp/industrial2.webp",
   },
   {
     title: "Soil Mechanics & Geotechnical Engineering",
     description: "Comprehensive ground investigation, soil analysis, and foundation design for any terrain. We assess subsurface conditions and deliver geotechnical solutions that underpin safe, stable structures.",
-    image: "/images/highway2.jpg",
+    image: "/images/webp/highway2.webp",
   },
   {
     title: "Highway Engineering",
     description: "From intricate highway interchanges to extensive road networks, our civil engineering solutions connect communities. We focus on scalable, long-lasting infrastructure that forms the backbone of modern society.",
-    image: "/images/highway.jpg",
+    image: "/images/webp/highway.webp",
   },
   {
     title: "Environmental Engineering",
     description: "Sustainable engineering solutions that assess and protect the natural environment. Our environmental services include Environmental Impact Assessments, site remediation planning, and compliance with Nigerian environmental regulations.",
-    image: "/images/consultancy.png",
+    image: "/images/webp/consultancy.webp",
   },
   {
     title: "Hydraulics & Water Resources Engineering",
     description: "Precision design of water supply systems, drainage networks, flood control infrastructure, and hydraulic structures. We apply advanced modelling to deliver reliable, resilient water resource solutions.",
-    image: "/images/highway3.jpg",
+    image: "/images/webp/highway3.webp",
   },
   {
     title: "Electrical Engineering",
     description: "Comprehensive electrical engineering services spanning power systems design, high and low voltage installations, lighting systems, and energy efficiency solutions. Our team delivers safe, code-compliant electrical infrastructure for residential, commercial, and industrial projects from load analysis and single-line diagrams through to site commissioning and testing.",
-    image: "/images/solar2.png",
+    image: "/images/webp/solar2.webp",
   },
   {
     title: "Engineering Consultancy",
     description: "Expert advisory services across all engineering disciplines from concept feasibility and technical due diligence to regulatory compliance, value engineering, and independent design review. Whether you require peer review of existing designs, specialist input on a complex challenge, or a trusted technical partner for long-term project support, our multidisciplinary consultancy team brings the depth of knowledge and professional rigour your project demands.",
-    image: "/images/consultancy.png",
+    image: "/images/webp/consultancy.webp",
   },
 ];
 
@@ -64,11 +65,17 @@ export function Services() {
 
   return (
     <div className="pt-24 bg-white">
+      <SEO
+        title="Engineering Services - KOA Engineering | Structural, Civil & Geotechnical Solutions in Nigeria"
+        description="KOA Engineering offers 9 specialist services: Structural, Construction Management, Steel & Timber, Geotechnical, Highway, Environmental, Hydraulics, Electrical Engineering, and Consultancy across Nigeria."
+        url="https://koaengineering.com/services"
+        image="https://koaengineering.com/images/webp/project1.webp"
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden">
         <img
-          src="/images/project1.png"
+          src="/images/webp/project1.webp"
           alt="Engineering Services"
           className="absolute inset-0 w-full h-full object-cover opacity-60"
           style={{ filter: "blur(3px)", transform: "scale(1.05)" }}
@@ -82,7 +89,7 @@ export function Services() {
             transition={{ duration: 0.6 }}
             className="text-koa-accent font-display text-xs uppercase tracking-[0.3em] mb-5"
           >
-            9 Engineering Disciplines
+      
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
