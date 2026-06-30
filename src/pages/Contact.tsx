@@ -3,6 +3,7 @@ import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
 import { MapPin, Phone, Mail, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { SEO } from "../components/ui/SEO";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -40,6 +41,12 @@ export function Contact() {
 
   return (
     <div className="pt-24 bg-white">
+      <SEO
+        title="Contact KOA Engineering - Abuja, Nigeria"
+        description="Get in touch with KOA Engineering for structural, civil, and general engineering services. Located in Ushafa Bwari, FCT Abuja, Nigeria. Call +234 703 602 6716 or email info@koaengineering.com."
+        url="https://koaengineering.com/contact"
+        image="https://koaengineering.com/images/webp/project1.webp"
+      />
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden mb-12">
