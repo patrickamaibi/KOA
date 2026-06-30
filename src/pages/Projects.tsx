@@ -14,6 +14,7 @@ interface Testimonial {
   company: string;
   year: string;
   project_id: number;
+  location?: string;
   remark: string;
 }
 
@@ -148,6 +149,7 @@ export function Projects() {
     supabase
       .from("testimonials")
       .select("*")
+      .order("created_at", { ascending: false })
       .then(({ data }) => {
         if (data) setTestimonials(data);
       });
@@ -166,6 +168,15 @@ export function Projects() {
     activeCategory === "All"
       ? hardcodedProjects
       : hardcodedProjects.filter((p) => p.category === activeCategory);
+
+  // Prefer a client-confirmed location from a testimonial over the hardcoded
+  // project location — lets clients correct it when submitting feedback.
+  const resolveLocation = (projectId: number, fallback?: string) => {
+    const withLocation = testimonials.find(
+      (t) => t.project_id === projectId && t.location?.trim()
+    );
+    return withLocation?.location?.trim() || fallback;
+  };
 
   const projectTestimonials = selectedProject
     ? testimonials.filter((t) => t.project_id === selectedProject.id)
@@ -347,11 +358,14 @@ export function Projects() {
                         card.addEventListener("mouseleave", hide);
                       }}
                     >
-                      {hasTestimonial && project.location && (
-                        <p className="flex items-center gap-1.5 text-[11px] text-white/55 font-sans mb-1.5">
-                          <MapPin size={10} />{project.location}
-                        </p>
-                      )}
+                      {(() => {
+                        const loc = resolveLocation(project.id, project.location);
+                        return loc ? (
+                          <p className="flex items-center gap-1.5 text-[11px] text-white/55 font-sans mb-1.5">
+                            <MapPin size={10} />{loc}
+                          </p>
+                        ) : null;
+                      })()}
                       <p className="text-xs text-koa-accent/80 font-display uppercase tracking-widest mb-0.5">
                         View project details →
                       </p>
@@ -469,11 +483,14 @@ export function Projects() {
                         <Calendar size={11} />{selectedProject.year}
                       </span>
                     )}
-                    {projectTestimonials.length > 0 && selectedProject.location && (
-                      <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
-                        <MapPin size={11} />{selectedProject.location}
-                      </span>
-                    )}
+                    {(() => {
+                      const loc = resolveLocation(selectedProject.id, selectedProject.location);
+                      return loc ? (
+                        <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
+                          <MapPin size={11} />{loc}
+                        </span>
+                      ) : null;
+                    })()}
                     {projectTestimonials.length > 0 && selectedProject.client && (
                       <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
                         <Building2 size={11} />{selectedProject.client}

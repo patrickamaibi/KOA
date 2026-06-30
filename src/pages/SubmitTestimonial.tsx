@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SEO } from "../components/ui/SEO";
 import { Section } from "../components/ui/Section";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,8 +26,24 @@ export function SubmitTestimonial() {
     company: "",
     year: String(currentYear),
     projectId: "",
+    location: "",
     remark: "",
   });
+
+  // ── Auto-fill location from the project's existing record when a project
+  // is selected, but only if the client hasn't already typed their own value.
+  // This lets them confirm the location we have on file, or correct it.
+  const [locationTouched, setLocationTouched] = useState(false);
+
+  useEffect(() => {
+    if (locationTouched) return;
+    const selectedProject = hardcodedProjects.find(
+      (p) => String(p.id) === form.projectId
+    );
+    if (selectedProject?.location) {
+      setForm((prev) => ({ ...prev, location: selectedProject.location || "" }));
+    }
+  }, [form.projectId, locationTouched]);
 
   const handleCodeSubmit = () => {
     if (codeInput.trim().toUpperCase() === ACCESS_CODE) {
@@ -41,7 +57,9 @@ export function SubmitTestimonial() {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    if (name === "location") setLocationTouched(true);
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async () => {
@@ -61,6 +79,7 @@ export function SubmitTestimonial() {
       project_id: selectedProject.id,
       project_title: selectedProject.title,
       category: selectedProject.category,
+      location: form.location.trim() || null,
       remark: form.remark,
     });
 
@@ -253,6 +272,22 @@ export function SubmitTestimonial() {
                       ))}
                     </select>
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-display font-bold text-gray-700 mb-1.5 uppercase tracking-widest">
+                    Project Location
+                  </label>
+                  <input
+                    name="location"
+                    value={form.location}
+                    onChange={handleChange}
+                    placeholder="e.g. Lekki, Lagos"
+                    className="w-full border border-gray-200 rounded-[4px] px-4 py-3 text-gray-800 outline-none focus:border-koa-accent transition-colors"
+                  />
+                  <p className="text-xs text-gray-400 mt-1">
+                    Pre-filled from our records — please correct it if it's wrong.
+                  </p>
                 </div>
 
                 <div>
