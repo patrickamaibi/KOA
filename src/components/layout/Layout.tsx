@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import { ScrollRestoration } from "react-router-dom";
+import { CookieConsent } from "../ui/CookieConsent";
 
 const WhatsAppIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" stroke="none">
@@ -17,6 +18,7 @@ export function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <CookieConsent />
       <ScrollRestoration />
 
       {/* Floating WhatsApp Button */}
