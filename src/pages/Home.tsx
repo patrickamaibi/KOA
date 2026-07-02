@@ -15,14 +15,14 @@ import { hardcodedProjects } from "../data/projects";
 import { supabase } from "../lib/supabaseClient";
 
 const heroSlides = [
-  { id: 1, title: "Structural Excellence",  subtitle: "Precision engineering for modern architectural marvels.",  image: "/images/webp/KOA22.webp" },
-  { id: 2, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/webp/KOA25.webp" },
-  { id: 3, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/webp/KOA23.webp" },
-  { id: 4, title: "Heavy Infrastructure",   subtitle: "Robust civil engineering for national transit networks.",  image: "/images/webp/KOA24.webp" },
-  { id: 5, title: "Industrial Frameworks",  subtitle: "Advanced structural steel solutions for heavy industry.", image: "/images/webp/KOA21.webp" },
-  { id: 6, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/webp/KOA26.webp" },
-  { id: 7, title: "Renewable Energy",       subtitle: "Engineering a greener tomorrow with precision technology.", image: "/images/webp/KOA27.webp" },
-  { id: 8, title: "Urban Development",      subtitle: "Shaping skylines with sustainable commercial frameworks.", image: "/images/webp/KOA28.webp" },
+  { id: 1, title: "Structural Excellence",  subtitle: "Precision-engineered buildings crafted to stand the test of time.",       image: "/images/webp/KOA22.webp" },
+  { id: 2, title: "Residential Mastery",    subtitle: "Premium homes built with expert craftsmanship and solid foundations.",     image: "/images/webp/KOA25.webp" },
+  { id: 3, title: "Site Intelligence",      subtitle: "Rigorous ground investigation and survey works before every build.",       image: "/images/webp/KOA23.webp" },
+  { id: 4, title: "Highway Engineering",    subtitle: "Robust road infrastructure connecting communities across Nigeria.",         image: "/images/webp/KOA24.webp" },
+  { id: 5, title: "Steel Frameworks",       subtitle: "Advanced structural steel solutions engineered for heavy industry.",       image: "/images/webp/KOA21.webp" },
+  { id: 6, title: "Renewable Energy",       subtitle: "Large-scale solar solutions powering a cleaner, greener tomorrow.",       image: "/images/webp/KOA26.webp" },
+  { id: 7, title: "Energy Systems",         subtitle: "Precision installation and commissioning of solar energy infrastructure.", image: "/images/webp/KOA27.webp" },
+  { id: 8, title: "Commercial Projects",    subtitle: "Shaping skylines with functional, well-finished commercial spaces.",       image: "/images/webp/KOA28.webp" },
 ];
 
 const stats = [
@@ -32,7 +32,6 @@ const stats = [
   { label: "Delivery Rate",       value: 100, suffix: "%" },
 ];
 
-// ✅ Commercial Complex (id 2) first, then id 1
 const FEATURED_IDS = [2, 1];
 
 const coreServices = [
@@ -117,11 +116,16 @@ export function Home() {
           {heroSlides.map((slide, index) => (
             <SwiperSlide key={slide.id} className="relative h-full w-full overflow-hidden">
               <div className="absolute inset-0 z-0">
-                <img src={slide.image} alt={slide.title} className="ken-burns-img h-full w-full object-cover origin-center" />
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="ken-burns-img h-full w-full object-cover origin-center"
+                />
                 <div className="absolute inset-0 bg-hero-gradient" />
               </div>
+
               <div className="relative z-10 h-full flex flex-col justify-center container mx-auto px-6">
-                <div className="max-w-3xl">
+                <div className="max-w-2xl">
                   {activeSlide === index && (
                     <motion.div
                       initial={{ opacity: 0, y: 30 }}
@@ -133,17 +137,29 @@ export function Home() {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-koa-accent font-display text-xs uppercase tracking-[0.3em] mb-4"
+                      />
+
+                      <h1
+                        className="font-display font-bold text-white leading-[1.05] tracking-tight mb-5 drop-shadow-md"
+                        style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
                       >
-                      </motion.p>
-                      <h1 className="text-5xl md:text-7xl font-display font-bold text-white tracking-[0.08em] mb-6 drop-shadow-md">
                         {slide.title}
                       </h1>
-                      <p className="text-xl md:text-2xl text-koa-accent font-sans font-light mb-10 max-w-2xl drop-shadow-md">
+
+                      <p
+                        className="text-koa-accent font-sans font-light leading-relaxed mb-10 drop-shadow-md whitespace-nowrap overflow-hidden"
+                        style={{ fontSize: "clamp(0.85rem, 1.8vw, 1.25rem)" }}
+                      >
                         {slide.subtitle}
                       </p>
+
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <Link to="/projects"><Button size="lg" variant="primary">Explore Projects</Button></Link>
-                        <Link to="/contact"><Button size="lg" variant="ghost">Contact Us</Button></Link>
+                        <Link to="/projects">
+                          <Button size="lg" variant="primary">Explore Projects</Button>
+                        </Link>
+                        <Link to="/contact">
+                          <Button size="lg" variant="ghost">Contact Us</Button>
+                        </Link>
                       </div>
                     </motion.div>
                   )}
@@ -329,7 +345,6 @@ export function Home() {
                     )}
                   </div>
 
-                  {/* ✅ Location removed — only year remains */}
                   <div className="px-5 py-4 flex flex-col gap-1 bg-white">
                     <div className="w-6 mb-2 h-0.5 bg-gradient-to-r from-koa-accent to-transparent transition-all duration-500 group-hover:w-12" />
                     <h3 className="font-display font-bold text-koa-dark leading-snug" style={{ fontSize: "0.92rem", letterSpacing: "0.02em" }}>
