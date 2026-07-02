@@ -263,7 +263,6 @@ export const hardcodedProjects: Project[] = [
     title: "4 UNITS OF 2 BEDROOM SEMI DETACHED DUPLEX",
     coverImage: "/images/webp/KOA37.webp",
     images: ["/images/webp/KOA37.webp",
-      "/images/webp/KOA37B.webp",
       "/images/webp/KOA37C.webp",
     ],
     description: "Four well-finished 2-bedroom semi-detached duplexes compact, comfortable, and solidly built. A smart choice for young families and savvy investors looking for quality living without compromise.",
