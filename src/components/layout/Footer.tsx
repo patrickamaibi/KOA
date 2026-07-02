@@ -78,12 +78,13 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display uppercase tracking-widest mb-6">Company</h4>
+            <h4 className="font-display uppercase tracking-widest mb-6">COMPANY</h4>
             <ul className="space-y-4 font-sans text-gray-400">
               <li><Link to="/about" className="hover:text-koa-accent transition-colors">About Us</Link></li>
               <li><Link to="/services" className="hover:text-koa-accent transition-colors">Services</Link></li>
               <li><Link to="/projects" className="hover:text-koa-accent transition-colors">Projects</Link></li>
               <li><Link to="/about#leadership" className="hover:text-koa-accent transition-colors">Leadership</Link></li>
+              <li><Link to="/careers" className="hover:text-koa-accent transition-colors">Careers</Link></li>
             </ul>
           </div>
 

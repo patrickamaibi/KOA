@@ -17,7 +17,7 @@ export const hardcodedProjects: Project[] = [
     title: "4 UNITS OF 3-BEDROOM SEMI-DETACHED DUPLEX",
     coverImage: "/images/webp/project2.webp",
     images: ["/images/webp/project2.webp"],
-    description: "A beautifully completed two-storey duplex, built on solid concrete foundations with strong reinforced frames, durable block walls, and a robust timber roof structure engineered for longevity, safety, and everyday comfort.",
+    description: "Four well-finished 3-bedroom semi-detached duplexes, each thoughtfully designed  delivering generous living spaces, solid construction, and the comfort and privacy every family deserves.",
     client: "Apex Realty Group",
     location: "Abuja, Nigeria",
   },
@@ -56,7 +56,7 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA39D.webp",
       "/images/webp/KOA39E.webp",
     ],
-    description: "A magnificent fully detached two-storey residence, built on solid reinforced concrete foundations, strong structural frames, durable block walls, and a robust timber roof engineered to the highest standards for lasting comfort, safety, and elegance.",
+    description: "A fully detached 5-bedroom single-storey residence currently under construction spacious, private, and built to the highest standards for the modern family.",
     client: "NigerSteel Industries",
     location: "Abuja, Nigeria",
   },
@@ -66,7 +66,7 @@ export const hardcodedProjects: Project[] = [
     title: "5 BEDROOM HIGH RISE BUNGALOW",
     coverImage: "/images/webp/project3.webp",
     images: ["/images/webp/project3.webp", "/images/webp/residential4.webp"],
-    description: "Expansive and commanding, this 5-bedroom bungalow rises boldly on a single floor where generous living spaces meet heavy-duty concrete work, solid masonry, and a sweeping roof structure purpose-built to shelter a large family in style and absolute security.",
+    description: "Expansive and commanding, this fully detached 5-bedroom bungalow sprawls boldly across its plot, solid masonry and heavy-duty concrete work purpose-built to shelter a large family in style and absolute security.",
     client: "GreenPower Nigeria Ltd",
     location: "Abuja, Nigeria",
   },
@@ -102,13 +102,13 @@ export const hardcodedProjects: Project[] = [
     title: "Gilgal International Group of Schools",
     coverImage: "/images/webp/KOA5.webp",
     images: ["/images/webp/KOA5.webp"],
-    description: "A completed single-storey school complex built with solid block construction, covered walkways to protect pupils from sun and rain, spacious classrooms, wide zinc roof, and colourful wall paintings to make every child feel at home.",
+    description: "A completed school complex built with solid block construction, covered walkways to protect pupils from sun and rain, spacious classrooms, wide zinc roof, and colourful wall paintings to make every child feel at home.",
     client: "Horizon Properties",
     location: "Awume Otoli Benue state, Nigeria",
   },
 
    {
-    id: 14,
+    id: 8,
     category: "Structural",
     title: "5 BEDROOM FULLY DETACHED DUPLEX (ongoing)",
     coverImage: "/images/webp/KOA40C.webp",
@@ -117,14 +117,14 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA40B.webp",
       "/images/webp/KOA40D.webp",
       "/images/webp/KOA40E.webp",],
-    description: "A purpose-built student hostel at Kogi State University, featuring 20 units of self-contained accommodation — solidly constructed and thoughtfully designed to give students comfort, privacy, and a conducive space to live and study.",
+    description: "A fully detached 5-bedroom duplex at finishing stage, structurally sound, meticulously executed, and nearly ready for occupancy.",
     client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
 
   {
-    id: 8,
+    id: 9,
     category: "Structural",
     title: "Fully Detached 5 Bedroom Duplex",
     coverImage: "/images/webp/KOA7.webp",
@@ -135,43 +135,43 @@ export const hardcodedProjects: Project[] = [
   },
 
   {
-    id: 9,
+    id: 10,
     category: "Structural",
     title: "Cornerstone Mountain Assembly, Worship Center",
     coverImage: "/images/webp/KOA8.webp",
     images: ["/images/webp/KOA8.webp"],
-    description: "A completed single-storey worship centre with integrated office spaces solidly built, well-finished, and designed to serve the congregation and administration of Cornerstone Mountain Assembly with comfort and dignity.",
+    description: "A completed worship centre with integrated office spaces solidly built, well-finished, and designed to serve the congregation and administration of Cornerstone Mountain Assembly with comfort and dignity.",
     client: "Private Client",
     location: "Benue State, Nigeria",
   },
 
   {
-    id: 10,
+    id: 11,
     category: "Structural",
     title: "6 UNITS (TWO STOREY) OF 2 BEDROOM SEMI-DETACHED DUPLEX",
     coverImage: "/images/webp/project8.webp",
     images: ["/images/webp/project8.webp"],
-    description: "Ongoing construction of a residential block at lintel and ring beam level. Timber formwork and bamboo scaffolding are in place for the upper slab pour, with reinforcement already set.",
+    description: "Six 2-bedroom semi-detached duplexes rising across two storeys solidly constructed, well-finished, and designed to deliver comfortable, private living for families.",
     client: "Private Developer",
     location: "Abuja, Nigeria",
   },
 
   {
-    id: 11,
+    id: 12,
     category: "Structural",
-    title: "Structural Framework Design",
+    title: "4 UNITS OF  3 BEDROOM SEMI-DETACHED DUPLEX",
     coverImage: "/images/webp/KOA30D.webp",
     images: ["/images/webp/KOA30.webp",
       "/images/webp/KOA30B.webp",
       "/images/webp/KOA32.webp",
     "/images/webp/KOA30D.webp",],
-  description: "Comprehensive structural framework design and analysis for a landmark development. Full load calculations, member sizing, and construction documentation were delivered.",
+  description: "Four well-built 3-bedroom semi-detached duplexes, each offering comfortable living spaces, solid construction, and quality finishing ideal for families.",
     client: "Landmark Developers",
     location: "Abuja, Nigeria",
   },
 
    {
-    id: 12,
+    id: 13,
     category: "Structural",
     title: "8 UNITS OF 2 BEDROOM SEMI DETACHED DUPLEX",
     coverImage: "/images/webp/KOA29.webp",
@@ -186,7 +186,7 @@ export const hardcodedProjects: Project[] = [
   },
 
  {
-    id: 13,
+    id: 14,
     category: "Structural",
     title: "4 BEDROOM FULLY DETACHED DUPLEX",
     coverImage: "/images/webp/project7.webp",
@@ -197,20 +197,20 @@ export const hardcodedProjects: Project[] = [
   },
 
   {
-    id: 14,
+    id: 15,
     category: "Structural",
     title: " 2 UNITS OF 3 BEDROOM SEMI DETACHED DUPLEX",
     coverImage: "/images/webp/KOA33.webp",
     images: ["/images/webp/KOA33B.webp",
       "/images/webp/KOA33C.webp"
     ],
-    description: "Two elegantly designed 3-bedroom semi-detached duplexes, offering the perfect blend of space, privacy, and value. Solidly built and tastefully finished — ideal for families seeking comfort and a smart investment in one package.",
+    description: "Two elegantly designed 3-bedroom semi-detached duplexes, offering the perfect blend of space, privacy, and value. Solidly built and tastefully finished ideal for families seeking comfort and a smart investment in one package.",
     client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
   {
-    id: 10,
+    id: 16,
     category: "Structural",
     title: "STAFF QUARTERS IN OTUKPO SCHOOL",
     coverImage: "/images/webp/KOA42.webp",
@@ -220,13 +220,13 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA42D.webp",
       "/images/webp/KOA42E.webp",
     ],
-    description: "Ongoing construction of a residential block at lintel and ring beam level. Timber formwork and bamboo scaffolding are in place for the upper slab pour, with reinforcement already set.",
+    description: "A purpose-built staff quarters facility serving the Otukpo school community solidly constructed and thoughtfully delivered to provide comfortable, functional residential accommodation for teaching and administrative staff.",
     client: "Private Developer",
     location: "Benue State, Nigeria",
   },
 
   {
-    id: 10,
+    id: 17,
     category: "Structural",
     title: "Gilgal international school otukpo Benue state",
     coverImage: "/images/webp/KOA41H.webp",
@@ -241,13 +241,13 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA41J.webp",
       "/images/webp/KOA41K.webp",
     ],
-    description: "Ongoing construction of a residential block at lintel and ring beam level. Timber formwork and bamboo scaffolding are in place for the upper slab pour, with reinforcement already set.",
+    description: "A completed school complex for Gilgal International Group of Schools, Otukpo, Benue State solidly built and well-finished, delivering a safe and functional environment where young minds are shaped and futures built.",
     client: "Private Developer",
     location: "Benue State, Nigeria",
   },
 
   {
-    id: 14,
+    id: 18,
     category: "Structural",
     title: "3 UNITS OF 3 BEDROOM SEMI DETACHED DUPLEX",
     coverImage: "/images/webp/KOA34.webp",
@@ -258,7 +258,7 @@ export const hardcodedProjects: Project[] = [
   },
 
    {
-    id: 14,
+    id: 19,
     category: "Structural",
     title: "4 UNITS OF 2 BEDROOM SEMI DETACHED DUPLEX",
     coverImage: "/images/webp/KOA37.webp",
@@ -272,7 +272,7 @@ export const hardcodedProjects: Project[] = [
   },
 
   {
-    id: 14,
+    id: 20,
     category: "Structural",
     title: "Kogi State University Off Campus Hostel (20units of Self Contain)",
     coverImage: "/images/webp/KOA38F.webp",
@@ -288,13 +288,13 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA38H.webp",
       "/images/webp/KOA38I.webp",
     ],
-    description: "A purpose-built student hostel at Kogi State University, featuring 20 units of self-contained accommodation — solidly constructed and thoughtfully designed to give students comfort, privacy, and a conducive space to live and study.",
+    description: "A purpose-built student hostel at Kogi State University, featuring 20 units of self-contained accommodation solidly constructed and thoughtfully designed to give students comfort, privacy, and a conducive space to live and study.",
     client: "Various Clients",
     location: "Kogi State, Nigeria",
   },
 
   {
-    id: 15,
+    id: 21,
     category: "Highway",
     title: "Asphalt Road Paving Works",
     coverImage: "/images/webp/highway.webp",
@@ -308,7 +308,7 @@ export const hardcodedProjects: Project[] = [
  
 
   {
-    id: 16,
+    id: 22,
     category: "Industrial",
     title: "Steel Structural Welding Works",
     coverImage: "/images/webp/industrial2.webp",
@@ -320,7 +320,7 @@ export const hardcodedProjects: Project[] = [
   
   
   {
-    id: 17,
+    id: 23,
     category: "Others",
     title: "Solar Inverter & Electrical Panel Works",
     coverImage: "/images/webp/solar2.webp",
