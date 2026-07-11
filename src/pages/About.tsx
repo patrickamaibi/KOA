@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { Section } from "../components/ui/Section";
 import { Button } from "../components/ui/Button";
 import { Building2, Award, Users, BadgeCheck, ArrowRight } from "lucide-react";
@@ -12,6 +13,58 @@ const fadeUp = (delay = 0) => ({
   transition: { duration: 0.65, ease: "easeOut" as const, delay },
 });
 
+// ── Team data ──────────────────────────────────────────────────────────────
+// TODO: Replace placeholder image (team_paul.webp) and bios with real team member details.
+const team = [
+  {
+    name: "Engr. [Full Name]",
+    title: "Senior Structural Engineer",
+    image: "/images/webp/team_paul.webp",
+    certs: ["COREN", "MNSE"],
+    specialty: "Structural Engineering",
+    bio: "Brings over 8 years of experience delivering structural designs for residential, commercial, and industrial projects across Nigeria. Specializes in reinforced concrete and steel structure design, with a strong focus on code compliance and constructability. Has contributed to several landmark KOA projects from concept through completion.",
+  },
+  {
+    name: "Engr. [Full Name]",
+    title: "Civil Engineer",
+    image: "/images/webp/team_paul.webp",
+    certs: ["COREN", "MNSE"],
+    specialty: "Construction Management",
+    bio: "Oversees site execution and construction management with a background spanning highway and building construction projects. Known for meticulous quality control and coordinating multidisciplinary teams to keep projects on schedule and within budget. Has managed on-site delivery for several KOA developments.",
+  },
+  {
+    name: "Engr. [Full Name]",
+    title: "Environmental Engineer",
+    image: "/images/webp/team_paul.webp",
+    certs: ["COREN", "MNSE"],
+    specialty: "Environmental Engineering",
+    bio: "Focuses on environmental compliance, impact assessments, and sustainable design integration across KOA's civil and structural projects. Brings a strong background in environmental regulations and site remediation planning. Works closely with the design team to ensure projects meet both structural and environmental standards.",
+  },
+];
+
+// ── JSON-LD structured data for Team (Person schema, nested under Organization) ─
+const teamStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "KOA Engineering",
+  url: "https://koaengineering.com",
+  employee: team.map((member) => ({
+    "@type": "Person",
+    name: member.name,
+    jobTitle: member.title,
+    description: member.bio,
+    image: `https://koaengineering.com${member.image}`,
+    worksFor: {
+      "@type": "Organization",
+      name: "KOA Engineering",
+    },
+    hasCredential: member.certs.map((cert) => ({
+      "@type": "EducationalOccupationalCredential",
+      credentialCategory: cert,
+    })),
+  })),
+};
+
 export function About() {
   return (
     <div className="pt-24 bg-white">
@@ -21,6 +74,17 @@ export function About() {
         url="https://koaengineering.com/about"
         image="https://koaengineering.com/images/webp/project2.webp"
       />
+      <Helmet>
+        <meta
+          name="keywords"
+          content="KOA Engineering team, structural engineers Abuja, civil engineers Nigeria, COREN certified engineers, NSE members, engineering leadership team, Paul Abba Ojonugwa"
+        />
+        <meta name="author" content="KOA Engineering" />
+        <meta name="robots" content="index, follow" />
+        <script type="application/ld+json">
+          {JSON.stringify(teamStructuredData)}
+        </script>
+      </Helmet>
 
       {/* ── Hero ──────────────────────────────────────────────────────────── */}
       <section className="relative py-32 bg-koa-dark overflow-hidden">
@@ -240,6 +304,66 @@ export function About() {
               </p>
             </motion.div>
           </div>
+        </div>
+      </Section>
+
+      {/* ── Team ──────────────────────────────────────────────────────────── */}
+      <Section id="team" variant="white" className="border-t border-gray-100">
+        <motion.div {...fadeUp()} className="text-center mb-16">
+          <p className="text-koa-accent font-sans text-xs uppercase tracking-[0.3em] mb-3">
+            The People Behind The Work
+          </p>
+          <h2 className="text-3xl font-display font-bold text-koa-dark">Our Team</h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+          {team.map((member, i) => (
+            <motion.div
+              key={member.name + i}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, ease: "easeOut" as const, delay: i * 0.12 }}
+              className="group"
+            >
+              <div className="relative overflow-hidden rounded-2xl shadow-lg mb-6">
+                <div className="aspect-[4/5] bg-gray-100 overflow-hidden">
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-koa-dark/70 via-koa-dark/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-5">
+                  <p className="text-white font-display font-bold text-lg leading-tight">
+                    {member.name}
+                  </p>
+                  <p className="text-koa-accent font-sans text-xs uppercase tracking-widest mt-1">
+                    {member.title}
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap gap-2 mb-4">
+                {member.certs.map((cert) => (
+                  <div
+                    key={cert}
+                    className="flex items-center gap-1.5 text-[11px] font-display uppercase tracking-widest text-koa-green border border-koa-green/20 bg-koa-green/5 rounded-full px-3 py-1"
+                  >
+                    <BadgeCheck size={11} /> {cert}
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-koa-dark font-sans text-sm font-semibold mb-2">
+                {member.specialty}
+              </p>
+              <p className="text-gray-600 font-sans text-sm leading-relaxed">
+                {member.bio}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </Section>
 
