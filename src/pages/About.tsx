@@ -17,21 +17,22 @@ const fadeUp = (delay = 0) => ({
 // TODO: Replace placeholder image (team_paul.webp) and bios with real team member details.
 const team = [
   {
-    name: "Engr. [Full Name]",
-    title: "Senior Structural Engineer",
-    image: "/images/webp/team_paul.webp",
+    name: "Engr. Jesuborn Obimba-Wogu",
+    title: "Geotechnical Engineer",
+    image: "/images/webp/Jesuborn.webp",
+    imagePosition: "center 10%",
     certs: ["COREN", "MNSE"],
-    specialty: "Structural Engineering",
-    bio: "Brings over 8 years of experience delivering structural designs for residential, commercial, and industrial projects across Nigeria. Specializes in reinforced concrete and steel structure design, with a strong focus on code compliance and constructability. Has contributed to several landmark KOA projects from concept through completion.",
+    specialty: "Geotechnical Engineering & Consultancy",
+    bio: "Jesuborn Obimba-Wogu is a Geotechnical Engineer with a B.Eng. in Civil Engineering and an M.Eng. in Soil and Geotechnical Engineering from Michael Okpara University of Agriculture, Umudike, plus an M.Eng. in Geomechanics from the University of Grenoble Alpes, France. He specializes in geotechnical investigation, soil mechanics, risk assessment, and engineering consultancy across KOA's structural and civil projects. He is a Member of the Nigerian Society of Engineers (MNSE) and a Registered Engineer (R. Eng.).",
   },
-  {
+   {
     name: "Engr. Christian Attai Idoko",
     title: "Structural & Quality Control Engineer",
-    image: "/images/webp/idoko1.webp",
+    image: "/images/webp/idoko.webp",
     imagePosition: "center 8%",
     certs: ["COREN", "NSE"],
     specialty: "Structural, Civil & Facade Engineering",
-    bio: "Engr. Christian Attai Idoko is a Structural Engineer and Quality Control Engineer with 6 years of experience specializing in structural works, façade installation, and fabrication. He brings hands-on expertise in project execution, quality assurance, and compliance with engineering standards and safety regulations. He holds a Bachelor of Engineering in Civil Engineering from the University of Agriculture, Makurdi, Nigeria (2020), and is certified with COREN and NSE.",
+    bio: "Engr. Christian Attai Idoko is a Structural Engineer and Quality Control Engineer with 6 years of experience specializing in structural works, façade installation, and fabrication. He brings hands-on expertise in project execution, quality assurance, and compliance with engineering standards and safety regulations across residential and commercial sites. He holds a Bachelor of Engineering in Civil Engineering from the University of Agriculture, Makurdi, Nigeria, and is certified with COREN and NSE.",
   },
   {
     name: "Patrick Amaibi",
@@ -40,7 +41,7 @@ const team = [
     imagePosition: "center 12%",
     certs: ["GMNSE", "MNIEE", "MIAENG"],
     specialty: "Civil & Environmental Engineering",
-    bio: "Patrick Amaibi is a Civil and Environmental Engineer with a B.Eng in Civil Engineering from the University of Port Harcourt, Nigeria (2021). He brings hands-on expertise in site supervision, reinforced concrete design, environmental compliance, groundwater assessment, and GIS analysis across KOA's civil and structural projects. He is a Graduate Member of the Nigerian Society of Engineers (GMNSE) and a Corporate Member of the Nigerian Institution of Environmental Engineers (MNIEE).",
+    bio: "Patrick Amaibi is a Civil and Environmental Engineer with a B.Eng in Civil & Environmental Engineering from the University of Port Harcourt, Nigeria. He brings hands-on expertise in site supervision, reinforced concrete design, environmental compliance, groundwater assessment, GIS analysis, and operations management across KOA's civil and structural projects. He is a Graduate Member of the Nigerian Society of Engineers (GMNSE) and a Corporate Member of the Nigerian Institution of Environmental Engineers (MNIEE).",
   },
 ];
 

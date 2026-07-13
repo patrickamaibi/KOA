@@ -120,7 +120,7 @@ export function Legal() {
               For questions about these policies, to exercise your data rights, or to report a compliance concern, please contact us:
             </p>
             <p className="mb-2"><strong className="text-koa-dark">KOA Engineering</strong></p>
-            <p className="mb-2">No. 1 Rockview Street, Ushafa Bwari, FCT Abuja, Nigeria</p>
+            <p className="mb-2">Rockview Street, Ushafa Bwari, FCT Abuja, Nigeria</p>
             <p className="mb-2">
               <a href="mailto:info@koaengineering.com" className="text-koa-green underline">info@koaengineering.com</a>
             </p>

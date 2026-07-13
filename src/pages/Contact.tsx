@@ -218,10 +218,10 @@ export function Contact() {
                   <MapPin className="text-koa-accent shrink-0 mt-0.5" size={18} />
                   <div>
                     <p className="font-sans text-white/90 leading-relaxed">
-                      No.1 Rockview Street
-                      <br />
-                      Ushafa Bwari, FCT Abuja
-                      <br />
+                      Rockview Street,
+                      
+                      Ushafa Bwari, FCT Abuja,
+                      
                       Nigeria
                     </p>
                   </div>
