@@ -95,7 +95,7 @@ function ImageGallery({ images, title }: { images: string[]; title: string }) {
             {/* Counter pill */}
             <div
               className="absolute top-3 right-3 z-10 font-display text-[10px] uppercase tracking-widest px-2.5 py-1"
-              style={{ background: "rgba(13,31,23,0.65)", backdropFilter: "blur(6px)", color: "#A8C5B0", border: "1px solid rgba(168,197,176,0.2)", borderRadius: "2px" }}
+              style={{ background: "rgba(13,31,23,0.65)", backdropFilter: "blur(6px)", color: "#A8C5B0", border: "1px solid rgba(168,197,176,0.2)" }}
             >
               {String(activeIndex + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
             </div>
@@ -178,6 +178,32 @@ export function Projects() {
     return withLocation?.location?.trim() || fallback;
   };
 
+  // Client is no longer hardcoded — it's whoever submitted a testimonial
+  // for this project. Multiple people can leave a remark on the same
+  // project, so instead of silently dropping everyone but the first
+  // submitter, we dedupe all distinct client labels (company preferred,
+  // falling back to name) and show "First Client +N more" when there's
+  // more than one. The full list of remarks still shows lower down in
+  // the modal's Client Remarks section.
+  const resolveClient = (projectId: number): string | undefined => {
+    const relevant = testimonials.filter((t) => t.project_id === projectId);
+    if (relevant.length === 0) return undefined;
+
+    const seen = new Set<string>();
+    const labels: string[] = [];
+    for (const t of relevant) {
+      const label = t.company?.trim() || t.name?.trim();
+      if (label && !seen.has(label)) {
+        seen.add(label);
+        labels.push(label);
+      }
+    }
+
+    if (labels.length === 0) return undefined;
+    if (labels.length === 1) return labels[0];
+    return `${labels[0]} +${labels.length - 1} more`;
+  };
+
   const projectTestimonials = selectedProject
     ? testimonials.filter((t) => t.project_id === selectedProject.id)
     : [];
@@ -248,6 +274,7 @@ export function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project, index) => {
             const hasTestimonial = testimonials.some((t) => t.project_id === project.id);
+            const client = hasTestimonial ? resolveClient(project.id) : undefined;
 
             return (
               <motion.div
@@ -401,9 +428,9 @@ export function Projects() {
                           <Calendar size={10} />{project.year}
                         </span>
                       )}
-                      {hasTestimonial && project.client && (
+                      {client && (
                         <span className="flex items-center gap-1 text-[11px] text-gray-400 font-sans truncate">
-                          <Building2 size={10} />{project.client}
+                          <Building2 size={10} />{client}
                         </span>
                       )}
                     </div>
@@ -491,11 +518,14 @@ export function Projects() {
                         </span>
                       ) : null;
                     })()}
-                    {projectTestimonials.length > 0 && selectedProject.client && (
-                      <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
-                        <Building2 size={11} />{selectedProject.client}
-                      </span>
-                    )}
+                    {(() => {
+                      const client = resolveClient(selectedProject.id);
+                      return client ? (
+                        <span className="flex items-center gap-1.5 text-xs text-white/60 font-sans">
+                          <Building2 size={11} />{client}
+                        </span>
+                      ) : null;
+                    })()}
                   </div>
                 </div>
               </div>

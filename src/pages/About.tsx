@@ -26,6 +26,15 @@ const team = [
     bio: "Jesuborn Obimba-Wogu is a Geotechnical Engineer with a B.Eng. in Civil Engineering and an M.Eng. in Soil and Geotechnical Engineering from Michael Okpara University of Agriculture, Umudike, plus an M.Eng. in Geomechanics from the University of Grenoble Alpes, France. He specializes in geotechnical investigation, soil mechanics, risk assessment, and engineering consultancy across KOA's structural and civil projects. He is a Member of the Nigerian Society of Engineers (MNSE) and a Registered Engineer (R. Eng.).",
   },
    {
+    name: "Engr. Gabriel Oluwasegun Samson",
+    title: "Materials, Production & Quality Engineering",
+    image: "/images/webp/Samson.webp",
+    imagePosition: "center 10%",
+    certs: ["COREN", "MNSE"],
+    specialty: "Quality Control, Assurance & Consultancy",
+    bio: "Gabriel Oluwasegun Samson is a Materials and Production Engineer with a B.Eng in Materials and Production Engineering from Ambrose Alli University, Ekpoma. With over 7 years of experience, he specializes in project management, quality control, and quality assurance. He brings hands-on expertise in process optimization, materials testing, compliance auditing, and production oversight across different engineering projects. He serves as Senior Consultant on quality and delivery matters.",
+  },
+   {
     name: "Engr. Christian Attai Idoko",
     title: "Structural & Quality Control Engineer",
     image: "/images/webp/idoko.webp",

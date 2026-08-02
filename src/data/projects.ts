@@ -3,9 +3,8 @@ export interface Project {
   category: string;
   title: string;
   coverImage: string;        // shown on the grid card
-  images: string[];          // all images shown in the modal gallery (include coverImage here too)
+  images: string[];          // all images shown in the modal gallery (include coverImage too)
   description?: string;
-  client?: string;
   year?: string;
   location?: string;
 }
@@ -18,7 +17,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/project2.webp",
     images: ["/images/webp/project2.webp"],
     description: "Four well-finished 3-bedroom semi-detached duplexes, each thoughtfully designed  delivering generous living spaces, solid construction, and the comfort and privacy every family deserves.",
-    client: "Apex Realty Group",
     location: "Abuja, Nigeria",
   },
   {
@@ -41,7 +39,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA36K.webp",
       "/images/webp/KOA36L.webp"],
     description: "A large-scale commercial complex delivering a reinforced concrete framed structure housing a warehouse, supermarket, and multipurpose hall built on deep solid foundations, with wide-span roof systems, durable block walls, and heavy-duty flooring engineered to handle high foot traffic and heavy loads for decades.",
-    client: "State Ministry of Transport",
     location: "Abuja, Nigeria",
   },
   {
@@ -57,7 +54,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA39E.webp",
     ],
     description: "A fully detached 5-bedroom single-storey residence currently under construction spacious, private, and built to the highest standards for the modern family.",
-    client: "NigerSteel Industries",
     location: "Abuja, Nigeria",
   },
   {
@@ -67,7 +63,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/project3.webp",
     images: ["/images/webp/project3.webp", "/images/webp/residential4.webp"],
     description: "Expansive and commanding, this fully detached 5-bedroom bungalow sprawls boldly across its plot, solid masonry and heavy-duty concrete work purpose-built to shelter a large family in style and absolute security.",
-    client: "GreenPower Nigeria Ltd",
     location: "Abuja, Nigeria",
   },
   {
@@ -83,7 +78,6 @@ export const hardcodedProjects: Project[] = [
 "/images/webp/KOA35E.webp",
     ],
     description: "Four homes taking shape each a 2-bedroom semi-detached terrace rising steadily, with strong structural frames, solid masonry walls, and a roof structure soon to crown what will be modern, affordable family living at its finest.",
-    client: "Premier Homes Ltd",
     location: "Abuja, Nigeria",
   },
   {
@@ -103,7 +97,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/KOA5.webp",
     images: ["/images/webp/KOA5.webp"],
     description: "A completed school complex built with solid block construction, covered walkways to protect pupils from sun and rain, spacious classrooms, wide zinc roof, and colourful wall paintings to make every child feel at home.",
-    client: "Horizon Properties",
     location: "Awume Otoli Benue state, Nigeria",
   },
 
@@ -118,7 +111,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA40D.webp",
       "/images/webp/KOA40E.webp",],
     description: "A fully detached 5-bedroom duplex at finishing stage, structurally sound, meticulously executed, and nearly ready for occupancy.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -130,7 +122,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/KOA7.webp",
     images: ["/images/webp/KOA7.webp"],
     description: "Design and construction of a fully detached two-storey residential duplex with modern finish, white cornicing, and balcony apartments. Full structural and civil engineering services provided.",
-    client: "Urban Shelter Initiative",
     location: "Abuja, Nigeria",
   },
 
@@ -141,7 +132,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/KOA8.webp",
     images: ["/images/webp/KOA8.webp"],
     description: "A completed worship centre with integrated office spaces solidly built, well-finished, and designed to serve the congregation and administration of Cornerstone Mountain Assembly with comfort and dignity.",
-    client: "Private Client",
     location: "Benue State, Nigeria",
   },
 
@@ -152,7 +142,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/project8.webp",
     images: ["/images/webp/project8.webp"],
     description: "Six 2-bedroom semi-detached duplexes rising across two storeys solidly constructed, well-finished, and designed to deliver comfortable, private living for families.",
-    client: "Private Developer",
     location: "Abuja, Nigeria",
   },
 
@@ -166,7 +155,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA32.webp",
     "/images/webp/KOA30D.webp",],
   description: "Four well-built 3-bedroom semi-detached duplexes, each offering comfortable living spaces, solid construction, and quality finishing ideal for families.",
-    client: "Landmark Developers",
     location: "Abuja, Nigeria",
   },
 
@@ -181,7 +169,6 @@ export const hardcodedProjects: Project[] = [
     "/images/webp/KOA31.webp"
     ],
     description: "Eight contemporary homes rising in unison each a well-structured 2-bedroom semi-detached duplex with solid foundations, sturdy masonry walls, and neatly framed floors delivering smart, comfortable living across two generous storeys.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -192,7 +179,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/project7.webp",
     images: ["/images/webp/project9.webp",],
     description: "A fully detached 4-bedroom duplex offering complete privacy and space to breathe no shared walls, no compromises. Solidly built and beautifully finished, this is a home designed for families who want room to grow and a foundation that stands the test of time.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -205,7 +191,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA33C.webp"
     ],
     description: "Two elegantly designed 3-bedroom semi-detached duplexes, offering the perfect blend of space, privacy, and value. Solidly built and tastefully finished ideal for families seeking comfort and a smart investment in one package.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -221,7 +206,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA42E.webp",
     ],
     description: "A purpose-built staff quarters facility serving the Otukpo school community solidly constructed and thoughtfully delivered to provide comfortable, functional residential accommodation for teaching and administrative staff.",
-    client: "Private Developer",
     location: "Benue State, Nigeria",
   },
 
@@ -242,7 +226,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA41K.webp",
     ],
     description: "A completed school complex for Gilgal International Group of Schools, Otukpo, Benue State solidly built and well-finished, delivering a safe and functional environment where young minds are shaped and futures built.",
-    client: "Private Developer",
     location: "Benue State, Nigeria",
   },
 
@@ -253,7 +236,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/KOA34.webp",
     images: ["/images/webp/KOA34.webp",],
     description: "Three beautifully finished 3-bedroom semi-detached duplexes, each offering generous living space and everyday comfort. Solidly constructed and ready for the family that wants quality, privacy, and great value all in one home.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -266,7 +248,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA37C.webp",
     ],
     description: "Four well-finished 2-bedroom semi-detached duplexes compact, comfortable, and solidly built. A smart choice for young families and savvy investors looking for quality living without compromise.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 
@@ -288,7 +269,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/KOA38I.webp",
     ],
     description: "A purpose-built student hostel at Kogi State University, featuring 20 units of self-contained accommodation solidly constructed and thoughtfully designed to give students comfort, privacy, and a conducive space to live and study.",
-    client: "Various Clients",
     location: "Kogi State, Nigeria",
   },
 
@@ -301,7 +281,6 @@ export const hardcodedProjects: Project[] = [
       "/images/webp/highway2.webp"
     ],
     description: "Full-scale asphalt road paving and compaction works on a major road corridor. Our team deployed heavy-duty asphalt rollers and pavers to deliver a smooth, durable surface meeting federal highway standards.",
-    client: "Federal Ministry of Works",
     location: "Nigeria",
   },
  
@@ -313,7 +292,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/industrial2.webp",
     images: ["/images/webp/industrial3.webp"],
     description: "Structural steel welding and fabrication works on an industrial facility. Our certified welders carried out precision welding of steel members within a steel-framed warehouse structure.",
-    client: "Dangote Group",
     location: "Abuja, Nigeria",
   },
   
@@ -325,7 +303,6 @@ export const hardcodedProjects: Project[] = [
     coverImage: "/images/webp/solar2.webp",
     images: ["/images/webp/solar.webp"],
     description: "Installation and commissioning of solar inverter systems, charge controllers, and distribution panels. Our KOA engineers handle full wiring, load balancing, and system testing to ensure safe and reliable power supply.",
-    client: "Various Clients",
     location: "Abuja, Nigeria",
   },
 ];
