@@ -9,6 +9,7 @@ import { Contact } from "./pages/Contact";
 import { Legal } from "./pages/Legal";
 import { SubmitTestimonial } from "./pages/SubmitTestimonial";
 import { Careers } from "./pages/Careers";
+import { Socials } from "./pages/Socials";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,7 @@ const router = createBrowserRouter([
       { path: "legal", element: <Legal /> },
       { path: "submit-testimonial", element: <SubmitTestimonial /> },
       { path: "careers", element: <Careers /> },
+      { path: "socials", element: <Socials /> },
     ],
   },
 ]);

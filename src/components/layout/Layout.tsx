@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Navigation } from "./Navigation";
 import { Footer } from "./Footer";
 import { ScrollRestoration } from "react-router-dom";
@@ -11,13 +11,16 @@ const WhatsAppIcon = ({ className }: { className?: string }) => (
 );
 
 export function Layout() {
+  const { pathname } = useLocation();
+  const hideFooter = pathname === "/socials";
+
   return (
     <div className="min-h-screen flex flex-col bg-white">
       <Navigation />
       <main className="flex-grow">
         <Outlet />
       </main>
-      <Footer />
+      {!hideFooter && <Footer />}
       <CookieConsent />
       <ScrollRestoration />
 
