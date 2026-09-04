@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 
 Disallow: /submit-testimonial
+Disallow: /socials
 
 Sitemap: https://koaengineering.com/sitemap.xml
